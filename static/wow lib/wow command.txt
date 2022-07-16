@@ -1,0 +1,19 @@
+data-wow-delay="0.1s"
+
+wow bounceInRight
+
+wow bounceInLeft
+
+wow fadeInUp
+
+----------------------------
+
+<link href="lib/animate/animate.min.css" rel="stylesheet">
+
+<script src="lib/wow/wow.min.js"></script>
+
+<script>  new WOW().init();  </script>
+
+----------------------------
+
+https://animate.style/

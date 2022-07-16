@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ar" >
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;400;500;600&family=Raleway&display=swap" rel="stylesheet" />
+    <!-- icon -->
+    <link rel="icon" href="{{ url_for('static', filename='logo.PNG')}}" />
+    <!-- wow lib -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='wow lib/animate/animate.min.css')}} " />
+    <!-- font awesom -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='fontawsom/New folder/all.min.css')}}" />
+    <!-- main css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}} " />
+    <title>D-Search</title>
+  </head>
+
+  <body>
+
+    <!-- logo -->
+    <div class="box1 wow bounceInRight {{rmr}} {{rmr_1}} {{rmrb_nb}} {{rmr_wz}} {{rmr_amz}} {{rmr_Eric}}">
+      <div class="img_b">
+        <img src="{{ url_for('static', filename='logo.PNG')}}" alt="" />
+      </div>
+      <h1>D-Search</h1>
+    </div>
+    
+    <!-- form input -->
+    <form class="{{rmr}} {{rmr_1}} {{rmrb_nb}} {{rmr_wz}} {{rmr_amz}} {{rmr_Eric}}" action="" method="post">
+      <div class="box wow bounceInLeft">
+          <input type="text" id="texts" placeholder="Search Here" name="search" value="{{request.form.search}}" required/>
+          <button id="btn" type="submit"><i class="fas fa-search"></i></button>
+      </div>
+      <div class="w3-section">
+        <input class="w3-input w3-border page" title="Enter how many pages you want" type="number" placeholder="Page" name="page" value="{{request.form.page}}" required />
+      </div>
+    </form>
+
+    <!-- export btn -->
+    <div class="cont {{rmr}} {{rmr_1}} {{rmrb_nb}} {{rmr_wz}} {{rmr_amz}} {{rmr_Eric}}">
+      <a href="/get_csv" class="btn_csv csv">Export To Exel File</a>
+      <a href="/get_json" class="btn_csv json">Export To json File</a>
+    </div>
+
+    <!-- start container -->
+    <div class="containerr">
+
+      {#----------- start jumia ------------#}
+      <div class="{{visp}} {{rmr}} {{rmr_1}} {{rmrb_nb}} {{rmr_wz}} {{rmr_amz}} {{rmr_Eric}}">
+        <h3>{{ leng }} {{siteName}}</h3>
+        {% set count = namespace(value=1) %}
+        {% for v in img_s %}
+            <div class="ss ">
+              <div class="boxz">
+                <a class="btna" href="{{ iteml[loop.index0]}}" target="_blank">Open <i class="fa-regular fa-arrow-up-right-from-square"></i></a>
+                <div class="name">{{ namei[loop.index0]}}</div>
+                <div class="price">{{ price[loop.index0]}}</div>
+              </div>
+              <a href="{{ iteml[loop.index0]}}" target="_blank"><img src="{{ v }}" alt=""></a>
+              <span>{{ count.value }}</span>
+            </div>
+            {% set count.value = count.value + 1%}
+        {% endfor %}
+      </div>
+
+      {#----------- start souq-maftou7 ------------#}
+      <div class="{{visp}} {{rmr1}} {{rmr_1}} {{rmrb_nb}} {{rmr_wz}} {{rmr_amz}} {{rmr_Eric}}">
+        <h3>{{ leng_soqm }} {{siteName_soqm}}</h3>
+        {% set count = namespace(value=1) %}
+        {% for v in img_s_soqm %}
+            <div class="ss ">
+              <div class="boxz">
+                <div class="location">{{ location_soqm[loop.index0]}}</div>
+                <div class="price">{{ price_soqm[loop.index0]}}</div>
+                <div class="name">{{ namei_soqm[loop.index0]}}</div>
+              </div>
+              <a href="#" target="_blank"><img src="{{ v }}" alt=""></a>
+              <span>{{ count.value }}</span>
+            </div>
+            {% set count.value = count.value + 1%}
+        {% endfor %}
+      </div>
+
+      {#----------- start Olx ------------#}
+      <div class="{{visp}} {{rmr1}} {{rmrb_nb}} {{rmr}} {{rmr_wz}} {{rmr_amz}} {{rmr_Eric}}">
+        <h3>{{ leng_olx }} {{siteName_olx}}</h3>
+        {% set count = namespace(value=1) %}
+        {% for v in img_s_olx %}
+            <div class="ss ">
+              <div class="boxz">
+                <a class="btna" href="{{ iteml_olx[loop.index0]}}" target="_blank">Open <i class="fa-regular fa-arrow-up-right-from-square"></i></a>
+                <div class="location">{{ location_olx[loop.index0]}}</div>
+                <div class="price">{{ price_olx[loop.index0]}}</div>
+                <div class="name">{{ namei_olx[loop.index0]}}</div>
+              </div>
+              <a href="{{ iteml_olx[loop.index0]}}" target="_blank"><img src="{{ v }}" alt=""></a>
+              <span>{{ count.value }}</span>
+            </div>
+            {% set count.value = count.value + 1%}
+        {% endfor %}
+      </div>
+
+      {#----------- start noor-book ------------#}
+      <div class="{{visp}} {{rmr1}} {{rmr_1}} {{rmr}} {{rmr_wz}} {{rmr_amz}} {{rmr_Eric}}">
+        <h3>{{ leng_nb }} {{siteName_nb}}</h3>
+        {% set count = namespace(value=1) %}
+        {% for v in img_s_nb %}
+            <div class="ss ">
+              <div class="boxz">
+                <a class="btna" href="{{ iteml_nb[loop.index0]}}" target="_blank">Open <i class="fa-regular fa-arrow-up-right-from-square"></i></a>
+                <div class="price">{{ category_nb[loop.index0]}}</div>
+                <div class="name">{{ namei_nb[loop.index0]}}</div>
+              </div>
+              <a href="{{ iteml_nb[loop.index0]}}" target="_blank"><img src="{{ v }}" alt=""></a>
+              <span>{{ count.value }}</span>
+            </div>
+            {% set count.value = count.value + 1%}
+        {% endfor %}
+      </div>
+
+      
+      {#----------- start Wuzzuf ------------#}
+      <div class="{{visp}} {{rmr1}} {{rmrb_nb}} {{rmr_1}} {{rmr}} {{rmr_amz}} {{rmr_Eric}}">
+        <h3>{{ leng_wz }} {{siteName_wz}}</h3>
+        {% set count = namespace(value=1) %}
+        {% for v in com_s_wz %}
+            <div class="ss ">
+              <div class="boxz">
+                <a class="btna" href="{{ iteml_wz[loop.index0]}}" target="_blank">Open <i class="fa-regular fa-arrow-up-right-from-square"></i></a>
+                <div class="location">{{ location_wz[loop.index0]}}</div>
+                <div class="location">{{ com_s_wz[loop.index0]}}</div>
+                {#<div class="price">{{ price_wz[loop.index0]}}</div>#}
+                <div class="name">{{ namei_wz[loop.index0]}}</div>
+              </div>
+              <span>{{ count.value }}</span>
+            </div>
+            {% set count.value = count.value + 1%}
+        {% endfor %}
+      </div>
+
+      {#----------- start amazon ------------#}
+      <div class="{{visp}} {{rmr}} {{rmr1}} {{rmr_1}} {{rmrb_nb}} {{rmr_wz}} {{rmr_Eric}}">
+        <h3>{{ lengamz }} {{siteNameamz}}</h3>
+        {% set count = namespace(value=1) %}
+        {% for v in img_amz %}
+            <div class="ss ">
+              <div class="boxz">
+                <a class="btna" href="{{ itemlamz[loop.index0]}}" target="_blank">Open <i class="fa-regular fa-arrow-up-right-from-square"></i></a>
+                <div class="name">{{ nameiamz[loop.index0]}}</div>
+                <div class="price">{{ priceamz[loop.index0]}}</div>
+              </div>
+              <a href="{{ itemlamz[loop.index0]}}" target="_blank"><img src="{{ v }}" alt=""></a>
+              <span>{{ count.value }}</span>
+            </div>
+            {% set count.value = count.value + 1%}
+        {% endfor %}
+      </div>
+
+      {#----------- start Eric ------------#}
+      <div class="{{visp}} {{rmr1}} {{rmrb_nb}} {{rmr}} {{rmr_amz}} {{rmr_wz}} {{rmr_1}}">
+        <h3>{{ leng_Eric }} {{siteName_Eric}}</h3>
+        {% set count = namespace(value=1) %}
+        {% for v in com_s_Eric %}
+            <div class="ss ">
+              <div class="boxz">
+                <a class="btna" href="{{ iteml_Eric[loop.index0]}}" target="_blank">Open <i class="fa-regular fa-arrow-up-right-from-square"></i></a>
+                <div class="location">{{ com_s_Eric[loop.index0]}}</div>
+                {#<div class="price">{{ price_wz[loop.index0]}}</div>#}
+                <div class="name">{{ namei_Eric[loop.index0]}}</div>
+              </div>
+              <span>{{ count.value }}</span>
+            </div>
+            {% set count.value = count.value + 1%}
+        {% endfor %}
+      </div>
+
+    </div> <!-- end container -->
+
+  <!-- ------------------------------ -->
+
+    <script src="{{ url_for('static', filename='wow lib/wow/wow.min.js')}} "></script>
+    <script> new WOW().init(); </script>
+    <!-- <script src="{{ url_for('static', filename='script.js')}}"></script> -->
+  </body>
+</html>
